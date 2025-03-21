@@ -1,1 +1,51 @@
-<h1>Hola Mundo!!</h1>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AR - Información de Propiedad</title>
+
+    <!-- Librerías de A-Frame y AR.js -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+
+    <script src="./app.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+</head>
+
+<body style="margin: 0; overflow: hidden;">
+    <!-- Header con botones -->
+    <header>
+        <button id="btn-comprar">Comprar</button>
+        <button id="btn-alquiler">Alquiler</button>
+        <button id="btn-analizar">Analizar</button>
+    </header>
+
+    <!-- Escena AR -->
+    <a-scene vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+        <a-camera gps-camera rotation-reader></a-camera>
+        <!-- Aquí no hay ningún modelo inicial -->
+    </a-scene>
+
+    <!-- Botón de Información -->
+    <div class="info-button">
+        <button id="show-info" aria-label="Mostrar información de la propiedad">ℹ️ Info</button>
+    </div>
+
+    <!-- Panel de Información -->
+    <div id="info-panel" class="info-panel" aria-hidden="true">
+        <div class="info-content">
+            <h2 id="info-titulo">Información de la Casa</h2>
+            <p><strong>Dirección:</strong> <span id="info-direccion">Calle Falsa 123</span></p>
+            <p><strong>Color:</strong> <span id="info-color">Blanco con detalles en azul</span></p>
+            <p><strong>Pisos:</strong> <span id="info-pisos">2</span></p>
+            <p><strong>Estado:</strong> <span id="info-estado">En Venta</span></p>
+            <p><strong>Precio:</strong> <span id="info-precio">$2,500,000 MXN</span></p>
+            <button id="close-info" aria-label="Cerrar panel de información">Cerrar</button>
+        </div>
+    </div>
+</body>
+
+</html>
